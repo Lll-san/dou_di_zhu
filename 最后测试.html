@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>媒体盒子</title>
+    <style>
+        .media1-box {
+            width: 670px;          /* 容器宽度 */
+            height: 154px;         /* 容器高度 */
+            border-radius: 3px;   /* 圆角半径（20px表示圆角大小） */
+            position: relative;    /* 设置为相对定位，作为子元素绝对定位的参照 */
+            overflow: hidden;      /* 隐藏超出圆角范围的内容 */
+            box-shadow: 0 4px 8px rgb(251, 250, 250); /* 可选：添加阴影效果 */
+
+            /* 新增/修改的样式 */
+            background-color: rgb(255, 255, 255); /* 纯白背景 */
+            border: 1px solid #000000;  /* 可选：添加浅灰色边框 */
+            box-shadow: none;        /* 移除阴影（或保留为透明） */
+
+            /* 指定位置 */
+            position: fixed;        /* 改为固定定位 */
+            bottom: 20px;          /* 距离底部20px */
+            left: 50%;             /* 左侧定位到50% */
+            transform: translateX(-50%); /* 向左平移自身宽度的一半 */
+            margin: 0 auto;        /* 水平居中备用方案 */
+            }
+
+        .media2-box {
+            width: 100px;          /* 容器宽度 */
+            height: 154px;         /* 容器高度 */
+            border-radius: 20px;   /* 圆角半径（20px表示圆角大小） */
+            position: relative;    /* 设置为相对定位，作为子元素绝对定位的参照 */
+            overflow: hidden;      /* 隐藏超出圆角范围的内容 */
+            box-shadow: 0 4px 8px rgb(251, 250, 250); /* 可选：添加阴影效果 */
+
+            /* 新增/修改的样式 */
+            background-color: rgb(255, 255, 255); /* 纯白背景 */
+            border: 1px solid #ffffff;  /* 可选：添加浅灰色边框 */
+            box-shadow: none;        /* 移除阴影（或保留为透明） */
+
+            /* 指定位置 */
+            position: fixed;        /* 改为固定定位 */
+            bottom: 50%;          /* 距离底部20px */
+            left: 7%;             /* 左侧定位到50% */
+            transform: translateX(-50%); /* 向左平移自身宽度的一半 */
+            margin: 0 auto;        /* 水平居中备用方案 */
+            }
+
+        .media3-box {
+            width: 100px;          /* 容器宽度 */
+            height: 154px;         /* 容器高度 */
+            border-radius: 20px;   /* 圆角半径（20px表示圆角大小） */
+            position: relative;    /* 设置为相对定位，作为子元素绝对定位的参照 */
+            overflow: hidden;      /* 隐藏超出圆角范围的内容 */
+            box-shadow: 0 4px 8px rgb(251, 250, 250); /* 可选：添加阴影效果 */
+
+            /* 新增/修改的样式 */
+            background-color: rgb(255, 255, 255); /* 纯白背景 */
+            border: 1px solid #ffffff;  /* 可选：添加浅灰色边框 */
+            box-shadow: none;        /* 移除阴影（或保留为透明） */
+
+            /* 指定位置 */
+            position: fixed;        /* 改为固定定位 */
+            bottom: 50%;          /* 距离底部20px */
+            left: 93%;             /* 左侧定位到50% */
+            transform: translateX(-50%); /* 向左平移自身宽度的一半 */
+            margin: 0 auto;        /* 水平居中备用方案 */
+            }
+
+        .media4-box {
+            width: 300px;          /* 容器宽度 */
+            height: 154px;         /* 容器高度 */
+            border-radius: 3px;   /* 圆角半径（20px表示圆角大小） */
+            position: relative;    /* 设置为相对定位，作为子元素绝对定位的参照 */
+            overflow: hidden;      /* 隐藏超出圆角范围的内容 */
+            box-shadow: 0 4px 8px rgb(251, 250, 250); /* 可选：添加阴影效果 */
+
+            /* 新增/修改的样式 */
+            background-color: rgb(255, 255, 255); /* 纯白背景 */
+            border: 1px solid #000000;  /* 可选：添加浅灰色边框 */
+            box-shadow: none;        /* 移除阴影（或保留为透明） */
+
+            /* 指定位置 */
+            position: fixed;        /* 改为固定定位 */
+            bottom: 200;          /* 距离底部20px */
+            left: 50%;             /* 左侧定位到50% */
+            transform: translateX(-50%); /* 向左平移自身宽度的一半 */
+            margin: 0 auto;        /* 水平居中备用方案 */
+            }
+
+
+        .media11-box {
+
+            width: 100px;          /* 容器宽度 */
+            height: 154px;         /* 容器高度 */
+            border-radius: 20px;   /* 圆角半径（20px表示圆角大小） */
+            position: relative;    /* 设置为相对定位，作为子元素绝对定位的参照 */
+            overflow: hidden;      /* 隐藏超出圆角范围的内容 */
+            box-shadow: 0 4px 8px rgba(0,0,0,0); /* 可选：添加阴影效果 */
+
+            /* 新增/修改的样式 */
+            background-color: white; /* 纯白背景 */
+            border: 1px solid #959595;  /* 可选：添加浅灰色边框 */
+            box-shadow: none;        /* 移除阴影（或保留为透明） */
+
+            position: absolute;      /* 使用绝对定位进行覆盖排列 */
+            left: calc(var(--index) * 30px); /* 设置左边距为20px */
+
+            margin-right: 15px;     /* 设置右侧间距为15px */
+            top: 0;
+            }
+            
+            .text-element1 {
+            position: fixed;
+            bottom: 20px; /* 与 .media1-box 相同的底部距离 */
+            left: calc(50% + 670px/2 + 20px); /* 居中位置 + 框宽度的一半 + 间距 */
+            transform: translateX(-50%); /* 微调位置 */
+            color: #000; /* 文本颜色 */
+            white-space: nowrap; /* 防止文本换行 */
+            font-size: 30px; /* 设置文字大小为16像素 */
+            }
+
+            .text-element2 {
+            position: fixed;
+            bottom: 50%; /* 与 .media1-box 相同的底部距离 */
+            left: 15%; /* 居中位置 + 框宽度的一半 + 间距 */
+            transform: translateX(-50%); /* 微调位置 */
+            color: #000; /* 文本颜色 */
+            white-space: nowrap; /* 防止文本换行 */
+            font-size: 30px; /* 设置文字大小为16像素 */
+            }
+
+            .text-element3 {
+            position: fixed;
+            bottom: 50%; /* 与 .media1-box 相同的底部距离 */
+            left: 85%; /* 居中位置 + 框宽度的一半 + 间距 */
+            transform: translateX(-50%); /* 微调位置 */
+            color: #000; /* 文本颜色 */
+            white-space: nowrap; /* 防止文本换行 */
+            font-size: 30px; /* 设置文字大小为16像素 */
+            }
+
+
+
+            .media-image {
+            width: auto;           /* 取消强制宽度 */
+            height: auto;          /* 取消强制高度 */
+            max-width: 100%;        /* 限制最大宽度（按需调整百分比） */
+            max-height: 100%;       /* 限制最大高度 */
+            object-fit: contain;   /* 替换cover，保持比例且不裁剪 */
+            display: block;
+
+            /* 新增定位属性 */
+            position: absolute;    /* 启用绝对定位 */
+            top: 50%;              /* 垂直居中起点 */
+            left: 50%;             /* 水平居中起点 */
+            transform: translate(-50%, -50%); /* 精确居中 */
+            }
+    </style>
+</head>
+<body>
+    <!-- <div class="media-box"></div>
+    <div class="media-box"></div>
+    <div class="media-box"></div> -->
+    <div class="media1-box"></div>
+        <script>
+            const mapa = 20;  // 最大牌量(设置手牌放置边界)
+            var caracter1 = 10;  // 玩家1的手牌数
+            const cj = mapa - caracter1; // 计算出剩余空间
+
+            for (let i = 0; i < caracter1; i++) {
+                const box = document.createElement('div');
+                box.className = 'media11-box';
+                box.style.setProperty('--index', i + cj * 0.5); // 设置索引变量
+                document.querySelector('.media1-box').appendChild(box); // 关键：选择media1-box作为父容器
+            }
+        </script>
+    </div>
+    <div class="text-element1">10</div>
+    
+    <div class="media2-box">
+        <img src="F:\\github\\dou_di_zhu\\img\\背面2.jpg" 
+        class="media-image">
+    </div>
+    <div class="media3-box">
+        <img src="F:\\github\\dou_di_zhu\\img\\背面2.jpg" 
+        class="media-image">
+    </div>
+    <div class="media4-box"></div></div>
+    <div class="text-element2">10</div>
+    <div class="text-element3">10</div>
+</body>
+</html>

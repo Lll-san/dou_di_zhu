@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>document.styleSheets 示例</title>
+    <style>
+        /* 初始样式 */
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: lightblue;
+            margin: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: Arial, sans-serif;
+            transition: all 0.3s ease; /* 添加过渡效果使变化更平滑 */
+        }
+    </style>
+</head>
+<body>
+    <div class="box" id="demoBox"></div>
+    
+    <div>
+        <button onclick="changeColor()">改变颜色</button>
+    </div>
+
+    <script>
+        // 获取文档的样式表
+        const styleSheets = document.styleSheets;
+        
+        // 通常第一个样式表是内嵌样式（<style>标签中的样式）
+        const firstStyleSheet = styleSheets[0];
+        
+        // 改变盒子颜色的函数
+        function changeColor() {
+            // 生成随机颜色
+            const randomColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+            
+            // 使用insertRule方法添加新的CSS规则
+            // 参数1: CSS规则字符串
+            // 参数2: 插入规则的位置索引
+            firstStyleSheet.insertRule(
+                `.box { background-color: ${randomColor}; }`, 
+                firstStyleSheet.cssRules.length
+            );
+        }
+        
+    </script>
+</body>
+</html>

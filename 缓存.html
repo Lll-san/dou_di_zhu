@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- 头部区域：包含文档的元信息和样式定义 -->
+<style>
+  /* 媒体容器样式：定义圆角方框的基本属性 */
+  .media-box {
+    width: 100px;          /* 容器宽度 */
+    height: 154px;         /* 容器高度 */
+    border-radius: 20px;   /* 圆角半径（20px表示圆角大小） */
+    position: relative;    /* 设置为相对定位，作为子元素绝对定位的参照 */
+    overflow: hidden;      /* 隐藏超出圆角范围的内容 */
+    box-shadow: 0 4px 8px rgba(0,0,0,0); /* 可选：添加阴影效果 */
+
+    /* 新增/修改的样式 */
+    background-color: white; /* 纯白背景 */
+    border: 1px solid #959595;  /* 可选：添加浅灰色边框 */
+    box-shadow: none;        /* 移除阴影（或保留为透明） */
+    }
+  
+    /* 图片样式：控制图片在容器中的表现 */
+    .media-image {
+    width: auto;           /* 取消强制宽度 */
+    height: auto;          /* 取消强制高度 */
+    max-width: 100%;        /* 限制最大宽度（按需调整百分比） */
+    max-height: 100%;       /* 限制最大高度 */
+    object-fit: contain;   /* 替换cover，保持比例且不裁剪 */
+    display: block;
+
+    /* 新增定位属性 */
+    position: absolute;    /* 启用绝对定位 */
+    top: 50%;              /* 垂直居中起点 */
+    left: 50%;             /* 水平居中起点 */
+    transform: translate(-50%, -50%); /* 精确居中 */
+    }
+
+
+
+
+</style>
+</head>
+
+<!-- 文档主体内容 -->
+<body>
+<!-- 媒体容器：包含图片和文字说明 -->
+<div class="media-box">
+    <img src="F:\\github\\dou_di_zhu\\img\\背面2.jpg" 
+       class="media-image">
+</div>
+
+<div class="media-box">
+    <img src="F:\\github\\dou_di_zhu\\img\\背面2.jpg" 
+       class="media-image">
+</div>
+</body>
+</html>
