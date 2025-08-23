@@ -1,52 +1,48 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>document.styleSheets 示例</title>
-    <style>
-        /* 初始样式 */
-        .box {
-            width: 200px;
-            height: 200px;
-            background-color: lightblue;
-            margin: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: Arial, sans-serif;
-            transition: all 0.3s ease; /* 添加过渡效果使变化更平滑 */
-        }
-    </style>
-</head>
-<body>
-    <div class="box" id="demoBox"></div>
-    
-    <div>
-        <button onclick="changeColor()">改变颜色</button>
-    </div>
+for (let i = 0; i < caracter1; i++) {
+                const box = document.createElement('div');
 
-    <script>
-        // 获取文档的样式表
-        const styleSheets = document.styleSheets;
-        
-        // 通常第一个样式表是内嵌样式（<style>标签中的样式）
-        const firstStyleSheet = styleSheets[0];
-        
-        // 改变盒子颜色的函数
-        function changeColor() {
-            // 生成随机颜色
-            const randomColor = '#' + Math.floor(Math.random()*16777215).toString(16);
-            
-            // 使用insertRule方法添加新的CSS规则
-            // 参数1: CSS规则字符串
-            // 参数2: 插入规则的位置索引
-            firstStyleSheet.insertRule(
-                `.box { background-color: ${randomColor}; }`, 
-                firstStyleSheet.cssRules.length
-            );
-        }
-        
-    </script>
-</body>
-</html>
+                box.className = 'media11-box';
+
+                // 创建并添加第一个图片
+                const imgz = document.createElement('img');
+                imgz.className = 'media-imagep';
+                imgz.src = "img/梅花.jpg"; // 使用相对路径
+                box.appendChild(imgz);
+
+                // 创建并添加第二个图片
+                const imgf = document.createElement('img');
+                imgf.className = 'media-imagefp upside-down';
+                imgf.src = "img/梅花.jpg"; // 使用相对路径
+                box.appendChild(imgf);
+
+                const wbz = document.createElement('div');
+                wbz.className = 'caption';
+                wbz.textContent = 'JOKER'; // 添加文本内容
+                wbz.style.fontSize = '18px';
+                wbz.style.fontWeight = 'bold'; // 设置文字加粗
+                wbz.style.marginBottom = '5px';
+                wbz.style.marginTop = '0';
+                wbz.style.marginLeft = '-8px';
+                wbz.style.marginRight = '0';
+                wbz.style.writingMode = 'vertical-lr'; // 垂直排列，从右到左
+                wbz.style.textOrientation = 'upright'; // 保持文字直立
+                box.appendChild(wbz);
+
+
+
+                const wbf = document.createElement('div');
+                wbf.className = 'captionf text-upside-down';
+                wbf.textContent = 'JOKER'; // 添加文本内容
+                wbf.style.fontSize = '18px';
+                wbf.style.fontWeight = 'bold'; // 设置文字加粗
+                wbf.style.marginBottom = '5px';
+                wbf.style.marginTop = '0';
+                wbf.style.marginLeft = '0';
+                wbf.style.marginRight = '-8px';
+                wbf.style.writingMode = 'vertical-rl'; // 垂直排列，从右到左
+                wbf.style.textOrientation = 'upright'; // 保持文字直立
+                box.appendChild(wbf);
+
+                box.style.setProperty('--index', i + cj * 0.5); // 设置索引变量
+                document.querySelector('.media1-box').appendChild(box); // 关键：选择media1-box作为父容器
+            }
