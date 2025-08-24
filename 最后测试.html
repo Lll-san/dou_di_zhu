@@ -6,15 +6,15 @@
     <title>媒体盒子</title>
     <style>
         .media1-box {
-            width: 672px;          /* 容器宽度 */
-            height: 156px;         /* 容器高度 */
+            width: 688px;          /* 容器宽度 */
+            height: 200px;         /* 容器高度 */
             border-radius: 3px;   /* 圆角半径（20px表示圆角大小） */
             position: relative;    /* 设置为相对定位，作为子元素绝对定位的参照 */
             overflow: hidden;      /* 隐藏超出圆角范围的内容 */
             box-shadow: 0 4px 8px rgb(251, 250, 250); /* 可选：添加阴影效果 */
 
             /* 新增/修改的样式 */
-            background-color: rgb(255, 255, 255); /* 纯白背景 */
+            background-color: rgb(146, 99, 99); /* 纯白背景 */
             border: 1px solid transparent; /* 将边框颜色改为透明 */
             box-shadow: none;        /* 移除阴影（或保留为透明） */
 
@@ -70,31 +70,96 @@
 
         .media4-box {
             width: 300px;          /* 容器宽度 */
-            height: 156px;         /* 容器高度 */
+            height: 154px;         /* 容器高度 */
             border-radius: 3px;   /* 圆角半径（20px表示圆角大小） */
             position: relative;    /* 设置为相对定位，作为子元素绝对定位的参照 */
             overflow: hidden;      /* 隐藏超出圆角范围的内容 */
             box-shadow: 0 4px 8px rgb(251, 250, 250); /* 可选：添加阴影效果 */
 
             /* 新增/修改的样式 */
-            background-color: rgb(255, 255, 255); /* 纯白背景 */
+            background-color: rgb(219, 208, 255); /* 纯白背景 */
             border: 1px solid transparent; /* 将边框颜色改为透明 */
             box-shadow: none;        /* 移除阴影（或保留为透明） */
 
             /* 指定位置 */
             position: fixed;        /* 改为固定定位 */
-            bottom: 200;          /* 距离底部20px */
+            bottom: 80%;          /* 距离底部20px */
             left: 50%;             /* 左侧定位到50% */
             transform: translateX(-50%); /* 向左平移自身宽度的一半 */
             margin: 0 auto;        /* 水平居中备用方案 */
             }
+
+        .media44-box {
+            width: 100px;          /* 容器宽度 */
+            height: 154px;         /* 容器高度 */
+            border-radius: 20px;   /* 圆角半径（20px表示圆角大小） */
+            overflow: hidden;      /* 隐藏超出圆角范围的内容 */
+
+            /* 新增/修改的样式 */
+            background-color: white; /* 纯白背景 */
+            border: 1px solid #959595;  /* 可选：添加浅灰色边框 */
+            box-shadow: none;        /* 移除阴影（或保留为透明） */
+
+            position: fixed;        /* 改为固定定位 */
+            /* 距离右侧10% + 50px */
+            left: calc(50% + -151px + var(--index) * 101px); /* 设置左边距为20px */
+            /* 距离顶部20vh + 30px */
+            /* bottom: 80%; */
+
+
+            margin-right: 15px;     /* 设置右侧间距为15px */
+        }
+
 
 
         .media11-box {
         width: 100px;          /* 容器宽度 */
         height: 154px;         /* 容器高度 */
         border-radius: 20px;   /* 圆角半径（20px表示圆角大小） */
-        position: relative;    /* 设置为相对定位，作为子元素绝对定位的参照 */
+        overflow: hidden;      /* 隐藏超出圆角范围的内容 */
+        box-shadow: 0 4px 8px rgba(0,0,0,0); /* 可选：添加阴影效果 */
+
+        /* 新增/修改的样式 */
+        background-color: white; /* 纯白背景 */
+        border: 1px solid #959595;  /* 可选：添加浅灰色边框 */
+        box-shadow: none;        /* 移除阴影（或保留为透明） */
+
+        position: absolute;      /* 使用绝对定位进行覆盖排列 */
+        left: calc(var(--index) * 30px + 8px); /* 设置左边距为20px */
+
+        margin-right: 15px;     /* 设置右侧间距为15px */
+        top: 15%;
+
+        /* --box-index: 0; 定义CSS变量作为标记参数 */
+        transition: all 0.3s; /* 添加过渡动画使效果平滑 */
+        }
+
+        .media12-box {
+        width: 30px;          /* 容器宽度 */
+        height: 154px;         /* 容器高度 */
+        border-radius: 20px;   /* 圆角半径（20px表示圆角大小） */
+        overflow: hidden;      /* 隐藏超出圆角范围的内容 */
+        box-shadow: 0 4px 8px rgba(0,0,0,0); /* 可选：添加阴影效果 */
+
+        /* 新增/修改的样式 */
+        background-color: rgb(37, 33, 33); /* 纯白背景 */
+        border: 1px solid #959595;  /* 可选：添加浅灰色边框 */
+        box-shadow: none;        /* 移除阴影（或保留为透明） */
+
+        position: absolute;      /* 使用绝对定位进行覆盖排列 */
+        left: calc(var(--index) * 30px); /* 设置左边距为20px */
+
+        margin-right: 15px;     /* 设置右侧间距为15px */
+        top: 0;
+
+        /* --box-index: 0; 定义CSS变量作为标记参数 */
+          transition: all 0.3s; /* 添加过渡动画使效果平滑 */
+        }
+
+        .media13-box {
+        width: 100px;          /* 容器宽度 */
+        height: 154px;         /* 容器高度 */
+        border-radius: 20px;   /* 圆角半径（20px表示圆角大小） */
         overflow: hidden;      /* 隐藏超出圆角范围的内容 */
         box-shadow: 0 4px 8px rgba(0,0,0,0); /* 可选：添加阴影效果 */
 
@@ -109,18 +174,34 @@
         margin-right: 15px;     /* 设置右侧间距为15px */
         top: 0;
 
-        --box-index: 0; /* 定义CSS变量作为标记参数 */
+        /* --box-index: 0; 定义CSS变量作为标记参数 */
+          transition: all 0.3s; /* 添加过渡动画使效果平滑 */
         }
-        
+
         .text-element1 {
         position: fixed;
         bottom: 20px; /* 与 .media1-box 相同的底部距离 */
         left: calc(50% + 670px/2 + 20px); /* 居中位置 + 框宽度的一半 + 间距 */
-        transform: translateX(-50%); /* 微调位置 */
+        transform: translateX(-40%); /* 微调位置 */
         color: #000; /* 文本颜色 */
         white-space: nowrap; /* 防止文本换行 */
         font-size: 30px; /* 设置文字大小为16像素 */
         }
+
+
+        /* 玩家选中效果 */
+        .media11-box:hover {
+        background-color: #f0f0f0;    /* 悬停时背景变浅灰 */
+        border-color: #007bff;        /* 边框变蓝色 */
+        transform: scale(1.05);       /* 轻微放大 */
+        cursor: pointer;              /* 鼠标指针变为手形 */
+        }
+
+        .media11-box.slide-up {
+            transform: translateY(-25px); /* 上滑100px（根据需求调整） */
+            transition: transform 0.2s ease; /* 动画效果 */
+        }
+
 
         .text-element2 {
         position: fixed;
@@ -166,21 +247,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     /* 正面牌布局 */
     .media-imagep {
     width: auto;           /* 取消强制宽度 */
@@ -214,11 +280,6 @@
         margin: 0 0 5px 0;    /* 去除默认边距，下边距5px */
         font-size: 18px;      /* 标题字号 */
     }
-
-
-
-
-
     /* 反转图片样式：控制图片在容器中的表现 */
     .media-imagefp {
     width: auto;           /* 取消强制宽度 */
@@ -252,15 +313,6 @@
         margin: 0 0 5px 0;    /* 去除默认边距，下边距5px */
         font-size: 18px;      /* 标题字号 */
     }
-
-
-
-
-
-
-
-
-
     /* 图片颠倒效果 */
     .upside-down {
         transform: scaleY(-1); /* 垂直翻转 */
@@ -290,89 +342,17 @@
     .text-both-flip {
         transform: rotate(180deg) scaleX(-1);
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     </style>
 </head>
 <body>
 
 
 
-    <div class="media1-box"></div>
+
         <script>
-            const mapa = 20;  // 最大牌量(设置手牌放置边界)
-            var caracter1 = 20;  // 玩家1的手牌数
-            const cj = mapa - caracter1; // 计算出剩余空间
-
-            // for (let i = 0; i < caracter1; i++) {
-            //     const box = document.createElement('div');
-
-            //     box.className = 'media11-box';
-
-            //     // 创建并添加第一个图片
-            //     const imgz = document.createElement('img');
-            //     imgz.className = 'media-imagep';
-            //     imgz.src = "img/梅花.jpg"; // 使用相对路径
-            //     box.appendChild(imgz);
-
-            //     // 创建并添加第二个图片
-            //     const imgf = document.createElement('img');
-            //     imgf.className = 'media-imagefp upside-down';
-            //     imgf.src = "img/梅花.jpg"; // 使用相对路径
-            //     box.appendChild(imgf);
-
-            //     const wbz = document.createElement('div');
-            //     wbz.className = 'caption';
-            //     wbz.textContent = 'Q'; // 添加文本内容
-            //     wbz.style.fontSize = '18px';
-            //     wbz.style.fontWeight = 'bold'; // 设置文字加粗
-            //     wbz.style.marginBottom = '5px';
-            //     wbz.style.marginTop = '-3px';
-            //     wbz.style.marginLeft = '-6px';
-            //     wbz.style.marginRight = '0';
-            //     wbz.style.writingMode = 'vertical-lr'; // 垂直排列，从右到左
-            //     wbz.style.textOrientation = 'upright'; // 保持文字直立
-            //     box.appendChild(wbz);
-
-
-
-            //     const wbf = document.createElement('div');
-            //     wbf.className = 'captionf text-upside-down';
-            //     wbf.textContent = 'J'; // 添加文本内容
-            //     wbf.style.fontSize = '18px';
-            //     wbf.style.fontWeight = 'bold'; // 设置文字加粗
-            //     wbf.style.marginBottom = '5px';
-            //     wbf.style.marginTop = '0';
-            //     wbf.style.marginLeft = '0';
-            //     wbf.style.marginRight = '-6px';
-            //     wbf.style.writingMode = 'vertical-rl'; // 垂直排列，从右到左
-            //     wbf.style.textOrientation = 'upright'; // 保持文字直立
-            //     box.appendChild(wbf);
-
-            //     box.style.setProperty('--index', i + cj * 0.5); // 设置索引变量
-            //     document.querySelector('.media1-box').appendChild(box); // 关键：选择media1-box作为父容器
-            // }
         </script>
-        
-    </div>
+
+
     <!-- <div class="text-element1">10</div> -->
     
     <div class="media2-box">
@@ -383,13 +363,13 @@
         <img src="F:\\github\\dou_di_zhu\\img\\背面2.jpg" 
         class="media-image">
     </div>
-    <div class="media4-box"></div></div>
+
     <div class="text-element2">10</div>
     <div class="text-element3">10</div>
     <script>
         function paim(lis){  // 设置牌面
             const mapa = 20;  // 最大牌量(设置手牌放置边界)
-            const cj = mapa - 20; // 计算出剩余空间
+            const cj = mapa - lis.length; // 计算出剩余空间
             const huas = ['img/方块.jpg', 'img/梅花.jpg', 'img/红桃.jpg', 'img/黑桃.jpg']
             const dians = ['3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', '1', '2', 'JOKER', 'JOKER*']
             const dax = {0: '3', 1: '4', 2: '5', 3: '6', 4: '7', 5: '8', 6: '9', 7: '10', 8: 'J', 9: 'Q', 10: 'K', 11: '1', 12: '2', 13: 'JOKER', 14: 'JOKER*'}
@@ -406,6 +386,10 @@
             console.log(lis);
             const caracterp1 = document.createElement('div');
             caracterp1.className = 'text-element1';
+            const media1 = document.createElement('div');
+            media1.className = 'media1-box';
+            document.body.appendChild(media1);
+
             caracterp1.textContent = lis.length; // 添加文本内容
             document.querySelector('body').appendChild(caracterp1); // 关键：选择media1-box作为父容器
             for (let i = 0; i < lis.length; i++) {
@@ -501,11 +485,171 @@
         }
         }
 
-        // var lis = []
-        // for (let i = 0; i < 20; i++){
-        //     lis.push([i % 15, i % 4])
-        // }
-        // paim(lis)
+        function dizp(){  //反面的地主牌
+
+        }
+        var lis = []
+        for (let i = 0; i < 20; i++){
+            lis.push([i % 15, i % 4])
+        }
+        paim(lis)
+        document.querySelector('.media1-box').addEventListener('click', function(event) {
+        // 交换后的 dax
+        const daxf ={"3": 0, "4": 1, "5": 2, "6": 3, "7": 4, "8": 5, "9": 6, "10": 7, "J": 8, "Q": 9, "K": 10, "1": 11, "2": 12, "JOKER": 13, "JOKER*": 14};
+
+        // 交换后的 hsdx
+        const hsdf ={"img/方块.jpg": 0, "img/梅花.jpg": 1, "img/红桃.jpg": 2, "img/黑桃.jpg": 3};
+            const card = event.target.closest('.media11-box');
+            if (card) {
+                // 1. 获取卡牌文本内容
+                const textValue = card.textContent; 
+                const halfLength = Math.floor(textValue.length / 2); // 计算前半段长度
+                const firstHalf = textValue.substring(0, halfLength); // 截取前半段
+                
+                // 2. 获取图片src（关键修改）
+                const imgElement = card.querySelector('.media-imagep'); // 通过类名定位图片元素
+                const imgSrc = imgElement ? imgElement.getAttribute('src') : null; // 获取原始src值[6](@ref)
+                
+                // 3. 判断状态（0复位/1升起）
+                const isSlidUp = card.classList.contains('slide-up');
+                const state = isSlidUp ? 0 : 1; // 切换前状态
+                
+                // 4. 切换滑动状态
+                card.classList.toggle('slide-up');
+                
+                // 5. 返回结果：文本 + 图片src + 状态
+                console.log('返回值:', { 
+                    text: daxf[firstHalf], 
+                    imgSrc: hsdf[imgSrc],  // 新增图片src
+                    state: state 
+                });
+            }
+        });
+
+
+        function dizp(liss){  // 显示地主牌, 第一个元素为0时显示背面，否则显示正面
+            const mapa = 20;  // 最大牌量(设置手牌放置边界)
+            const huas = ['img/方块.jpg', 'img/梅花.jpg', 'img/红桃.jpg', 'img/黑桃.jpg']
+            const dians = ['3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', '1', '2', 'JOKER', 'JOKER*']
+            const dax = {0: '3', 1: '4', 2: '5', 3: '6', 4: '7', 5: '8', 6: '9', 7: '10', 8: 'J', 9: 'Q', 10: 'K', 11: '1', 12: '2', 13: 'JOKER', 14: 'JOKER*'}
+            const hsdx = {0: 'img/方块.jpg', 1: 'img/梅花.jpg', 2: 'img/红桃.jpg', 3: 'img/黑桃.jpg'}
+            var lis = [0, [1, 1], [2, 2], [3, 3]];
+            const box4 = document.createElement('div');
+            box4.className = 'media4-box';
+            document.body.appendChild(box4); // 关键：选择media1-box作为父容器
+            if (lis[0] == 0){
+                for (let i = 0; i < 3; i++){
+                    const box = document.createElement('div');
+                    box.className = 'media44-box';
+                    const imgz = document.createElement('img');
+                    imgz.className = 'media-image';
+                    imgz.src = "img/背面.jpg"; // 使用相对路径
+                    box.style.setProperty('--index', i);
+                    box.appendChild(imgz);
+                    document.querySelector('.media4-box').appendChild(box); // 关键：选择media4-box作为父容器
+                }
+            }
+            else{
+                console.log(lis);
+                const caracterp1 = document.createElement('div');
+                caracterp1.className = 'text-element1';
+                caracterp1.textContent = lis.length; // 添加文本内容
+                document.querySelector('body').appendChild(caracterp1); // 关键：选择media1-box作为父容器
+                for (let i = 1; i < 4; i++) {
+                    const box = document.createElement('div');
+
+                    box.className = 'media44-box';
+                    if (lis[i][0] < 13){
+                        // 创建并添加第一个图片
+                        const imgz = document.createElement('img');
+                        imgz.className = 'media-imagep';
+                        imgz.src = hsdx[lis[i][1]]; // 使用相对路径
+                        box.appendChild(imgz);
+
+                        // 创建并添加第二个图片
+                        const imgf = document.createElement('img');
+                        imgf.className = 'media-imagefp upside-down';
+                        imgf.src = hsdx[lis[i][1]]; // 使用相对路径
+                        box.appendChild(imgf);
+
+                        const wbz = document.createElement('div');
+                        wbz.className = 'caption';
+                        wbz.textContent = dax[lis[i][0]]; // 添加文本内容
+                        wbz.style.fontSize = '20px';
+                        wbz.style.fontWeight = 'bold'; // 设置文字加粗
+                        if (dax[lis[i][0]] == 10){
+                            wbz.style.marginLeft = '-5px';
+                        }
+                        else if ((dax[lis[i][0]] == 'Q')){
+                            wbz.style.marginTop = '-0px';
+                            wbz.style.marginLeft = '-2px';
+                            wbz.style.fontSize = '18px';
+                        }
+                        box.appendChild(wbz);
+
+                        const wbf = document.createElement('div');
+                        wbf.className = 'captionf text-upside-down';
+                        wbf.textContent = dax[lis[i][0]]; // 添加文本内容
+                        wbf.style.fontSize = '20px';
+                        wbf.style.fontWeight = 'bold'; // 设置文字加粗
+                        if (dax[lis[i][0]] == 10){
+                            wbf.style.marginRight = '-5px';
+                        }
+                        else if ((dax[lis[i][0]] == 'Q')){
+                            wbf.style.marginTop = '-0px';
+                            wbf.style.marginRight = '-2px';
+                            wbf.style.fontSize = '18px';
+                        }
+                        box.appendChild(wbf);
+
+                        box.style.setProperty('--index', i - 1); // 设置索引变量
+                        document.querySelector('.media4-box').appendChild(box); // 关键：选择media1-box作为父容器
+                    }
+                    else{
+                        const box = document.createElement('div');
+
+                        box.className = 'media44-box';
+
+                        const wbz = document.createElement('div');
+                        wbz.className = 'caption';
+                        wbz.textContent = dax[lis[i][0]]; // 添加文本内容
+                        wbz.style.fontSize = '18px';
+                        wbz.style.fontWeight = 'bold'; // 设置文字加粗
+                        wbz.style.marginBottom = '5px';
+                        wbz.style.marginTop = '0';
+                        wbz.style.marginLeft = '-8px';
+                        wbz.style.marginRight = '0';
+                        wbz.style.writingMode = 'vertical-lr'; // 垂直排列，从右到左
+                        wbz.style.textOrientation = 'upright'; // 保持文字直立
+                        if (lis[i][0] == 14){
+                            wbz.style.color = '#ff0000'; // 使用十六进制值
+                        }
+                        box.appendChild(wbz);
+
+                        const wbf = document.createElement('div');
+                        wbf.className = 'captionf text-upside-down';
+                        wbf.textContent = dax[lis[i][0]]; // 添加文本内容
+                        wbf.style.fontSize = '18px';
+                        wbf.style.fontWeight = 'bold'; // 设置文字加粗
+                        wbf.style.marginBottom = '5px';
+                        wbf.style.marginTop = '0';
+                        wbf.style.marginLeft = '0';
+                        wbf.style.marginRight = '-8px';
+                        wbf.style.writingMode = 'vertical-rl'; // 垂直排列，从右到左
+                        wbf.style.textOrientation = 'upright'; // 保持文字直立
+                        if (lis[i][0] == 14){
+                            wbf.style.color = '#ff0000'; // 使用十六进制值
+                        }
+                        box.appendChild(wbf);
+
+                        box.style.setProperty('--index', i - 1); // 设置索引变量
+                        document.querySelector('.media4-box').appendChild(box); // 关键：选择media1-box作为父容器
+                    }
+                }
+            }
+        }
+        dizp(0)
     </script>
+
 </body>
 </html>
