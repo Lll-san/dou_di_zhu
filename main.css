@@ -1,0 +1,466 @@
+.media1-box {
+    width: 688px;          /* 容器宽度 */
+    height: 200px;         /* 容器高度 */
+    border-radius: 3px;   /* 圆角半径（20px表示圆角大小） */
+    position: relative;    /* 设置为相对定位，作为子元素绝对定位的参照 */
+    overflow: hidden;      /* 隐藏超出圆角范围的内容 */
+    box-shadow: 0 4px 8px rgb(251, 250, 250); /* 可选：添加阴影效果 */
+
+    /* 新增/修改的样式 */
+    background-color: rgb(146, 99, 99); /* 纯白背景 */
+    border: 1px solid transparent; /* 将边框颜色改为透明 */
+    box-shadow: none;        /* 移除阴影（或保留为透明） */
+
+    /* 指定位置 */
+    position: fixed;        /* 改为固定定位 */
+    bottom: 20px;          /* 距离底部20px */
+    left: 50%;             /* 左侧定位到50% */
+    transform: translateX(-50%); /* 向左平移自身宽度的一半 */
+    margin: 0 auto;        /* 水平居中备用方案 */
+}
+
+.media2-box {
+    width: 100px;          /* 容器宽度 */
+    height: 154px;         /* 容器高度 */
+    border-radius: 20px;   /* 圆角半径（20px表示圆角大小） */
+    position: relative;    /* 设置为相对定位，作为子元素绝对定位的参照 */
+    overflow: hidden;      /* 隐藏超出圆角范围的内容 */
+    box-shadow: 0 4px 8px rgb(251, 250, 250); /* 可选：添加阴影效果 */
+
+    /* 新增/修改的样式 */
+    background-color: rgb(255, 255, 255); /* 纯白背景 */
+    border: 1px solid transparent; /* 将边框颜色改为透明 */
+    box-shadow: none;        /* 移除阴影（或保留为透明） */
+
+    /* 指定位置 */
+    position: fixed;        /* 改为固定定位 */
+    bottom: 53%;          /* 距离底部20px */
+    left: 2px;             /* 左侧定位到50% */
+
+    margin: 0 auto;        /* 水平居中备用方案 */
+}
+
+.media3-box {
+    width: 100px;          /* 容器宽度 */
+    height: 154px;         /* 容器高度 */
+    border-radius: 20px;   /* 圆角半径（20px表示圆角大小） */
+    position: relative;    /* 设置为相对定位，作为子元素绝对定位的参照 */
+    overflow: hidden;      /* 隐藏超出圆角范围的内容 */
+    box-shadow: 0 4px 8px rgb(251, 250, 250); /* 可选：添加阴影效果 */
+
+    /* 新增/修改的样式 */
+    background-color: rgb(255, 255, 255); /* 纯白背景 */
+    border: 1px solid transparent; /* 将边框颜色改为透明 */
+    box-shadow: none;        /* 移除阴影（或保留为透明） */
+
+    /* 指定位置 */
+    position: fixed;        /* 改为固定定位 */
+    bottom: 53%;          /* 距离底部20px */
+    right: 2px;             /* 左侧定位到50% */
+    margin: 0 auto;        /* 水平居中备用方案 */
+}
+
+.media4-box {
+    width: 300px;          /* 容器宽度 */
+    height: 154px;         /* 容器高度 */
+    border-radius: 3px;   /* 圆角半径（20px表示圆角大小） */
+    position: relative;    /* 设置为相对定位，作为子元素绝对定位的参照 */
+    overflow: hidden;      /* 隐藏超出圆角范围的内容 */
+    box-shadow: 0 4px 8px rgb(251, 250, 250); /* 可选：添加阴影效果 */
+
+    /* 新增/修改的样式 */
+    background-color: rgb(219, 208, 255); /* 纯白背景 */
+    border: 1px solid transparent; /* 将边框颜色改为透明 */
+    box-shadow: none;        /* 移除阴影（或保留为透明） */
+
+    /* 指定位置 */
+    position: fixed;        /* 改为固定定位 */
+    bottom: 80%;          /* 距离底部20px */
+    left: 50%;             /* 左侧定位到50% */
+    transform: translateX(-50%); /* 向左平移自身宽度的一半 */
+    margin: 0 auto;        /* 水平居中备用方案 */
+}
+
+.media44-box {
+    width: 100px;          /* 容器宽度 */
+    height: 154px;         /* 容器高度 */
+    border-radius: 20px;   /* 圆角半径（20px表示圆角大小） */
+    overflow: hidden;      /* 隐藏超出圆角范围的内容 */
+
+    /* 新增/修改的样式 */
+    background-color: white; /* 纯白背景 */
+    border: 1px solid #959595;  /* 可选：添加浅灰色边框 */
+    box-shadow: none;        /* 移除阴影（或保留为透明） */
+
+    position: fixed;        /* 改为固定定位 */
+    /* 距离右侧10% + 50px */
+    left: calc(50% + -151px + var(--index) * 101px); /* 设置左边距为20px */
+    /* 距离顶部20vh + 30px */
+    /* bottom: 80%; */
+
+
+    margin-right: 15px;     /* 设置右侧间距为15px */
+}
+
+
+
+.media11-box {   /* 玩家的牌 */
+    width: 100px;          /* 容器宽度 */
+    height: 154px;         /* 容器高度 */
+    border-radius: 20px;   /* 圆角半径（20px表示圆角大小） */
+    overflow: hidden;      /* 隐藏超出圆角范围的内容 */
+    box-shadow: 0 4px 8px rgba(0,0,0,0); /* 可选：添加阴影效果 */
+
+    /* 新增/修改的样式 */
+    background-color: white; /* 纯白背景 */
+    border: 1px solid #959595;  /* 可选：添加浅灰色边框 */
+    box-shadow: none;        /* 移除阴影（或保留为透明） */
+
+    position: absolute;      /* 使用绝对定位进行覆盖排列 */
+    left: calc(var(--index) * 30px + 8px); /* 设置左边距为20px */
+
+    margin-right: 15px;     /* 设置右侧间距为15px */
+    top: 15%;
+
+    /* --box-index: 0; 定义CSS变量作为标记参数 */
+    transition: all 0.3s; /* 添加过渡动画使效果平滑 */
+}
+
+
+/* 玩家选中效果 */
+.media11-box:hover {
+    background-color: #f0f0f0;    /* 悬停时背景变浅灰 */
+    border-color: #007bff;        /* 边框变蓝色 */
+    transform: scale(1.05);       /* 轻微放大 */
+    cursor: pointer;              /* 鼠标指针变为手形 */
+}
+
+.media11-box.slide-up {
+    transform: translateY(-25px); /* 上滑100px（根据需求调整） */
+    transition: transform 0.2s ease; /* 动画效果 */
+}
+
+
+
+/* 点击后状态 */
+.media11-box.selected {
+    border: 3px solid #2c28a7; /* 绿色边框 */
+    transform: translateY(-20px); /* 上浮更多 */
+}
+
+
+.media11-box.clicked {
+    animation: clickAnimation 0.3s ease;
+}
+
+
+.media1-cp-box {  /* 出牌区域 */
+    width: 688px;          /* 容器宽度 */
+    height: 200px;         /* 容器高度 */
+    border-radius: 3px;   /* 圆角半径（20px表示圆角大小） */
+    position: relative;    /* 设置为相对定位，作为子元素绝对定位的参照 */
+    overflow: hidden;      /* 隐藏超出圆角范围的内容 */
+    box-shadow: 0 4px 8px rgb(251, 250, 250); /* 可选：添加阴影效果 */
+
+    /* 新增/修改的样式 */
+    background-color: transparent; /* 透明背景 */
+    border: 1px solid transparent; /* 将边框颜色改为透明 */
+    box-shadow: none;        /* 移除阴影（或保留为透明） */
+
+    /* 指定位置 */
+    position: fixed;        /* 改为固定定位 */
+    bottom: 270px;          /* 距离底部20px */
+    left: 50%;             /* 左侧定位到50% */
+    transform: translateX(-50%); /* 向左平移自身宽度的一半 */
+    margin: 0 auto;        /* 水平居中备用方案 */
+}
+
+
+.media-cp-box {   /* 普通的牌（打出的牌） */
+    width: 100px;          /* 容器宽度 */
+    height: 154px;         /* 容器高度 */
+    border-radius: 20px;   /* 圆角半径（20px表示圆角大小） */
+    overflow: hidden;      /* 隐藏超出圆角范围的内容 */
+    box-shadow: 0 4px 8px rgba(0,0,0,0); /* 可选：添加阴影效果 */
+
+    /* 新增/修改的样式 */
+    background-color: white; /* 纯白背景 */
+    border: 1px solid #959595;  /* 可选：添加浅灰色边框 */
+    box-shadow: none;        /* 移除阴影（或保留为透明） */
+
+    position: absolute;      /* 使用绝对定位进行覆盖排列 */
+    left: calc(var(--index) * 30px + 8px); /* 设置左边距为20px */
+
+    margin-right: 15px;     /* 设置右侧间距为15px */
+    top: 15%;
+
+    /* --box-index: 0; 定义CSS变量作为标记参数 */
+    transition: all 0.3s; /* 添加过渡动画使效果平滑 */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.media2-cp-box {  /* 出牌区域 */
+    width: 688px;          /* 容器宽度 */
+    height: 200px;         /* 容器高度 */
+    border-radius: 3px;   /* 圆角半径（20px表示圆角大小） */
+    position: relative;    /* 设置为相对定位，作为子元素绝对定位的参照 */
+    overflow: hidden;      /* 隐藏超出圆角范围的内容 */
+    box-shadow: 0 4px 8px rgb(251, 250, 250); /* 可选：添加阴影效果 */
+
+    /* 新增/修改的样式 */
+    background-color: transparent; /* 透明背景 */
+    border: 1px solid transparent; /* 将边框颜色改为透明 */
+    box-shadow: none;        /* 移除阴影（或保留为透明） */
+
+    /* 指定位置 */
+    position: fixed;        /* 改为固定定位 */
+    bottom: 270px;          /* 距离底部20px */
+    left: 50%;             /* 左侧定位到50% */
+    transform: translateX(-50%); /* 向左平移自身宽度的一半 */
+    margin: 0 auto;        /* 水平居中备用方案 */
+}
+
+.media3-cp-box {  /* 出牌区域 */
+    width: 688px;          /* 容器宽度 */
+    height: 200px;         /* 容器高度 */
+    border-radius: 3px;   /* 圆角半径（20px表示圆角大小） */
+    position: relative;    /* 设置为相对定位，作为子元素绝对定位的参照 */
+    overflow: hidden;      /* 隐藏超出圆角范围的内容 */
+    box-shadow: 0 4px 8px rgb(251, 250, 250); /* 可选：添加阴影效果 */
+
+    /* 新增/修改的样式 */
+    background-color: transparent; /* 透明背景 */
+    border: 1px solid transparent; /* 将边框颜色改为透明 */
+    box-shadow: none;        /* 移除阴影（或保留为透明） */
+
+    /* 指定位置 */
+    position: fixed;        /* 改为固定定位 */
+    bottom: 270px;          /* 距离底部20px */
+    left: 50%;             /* 左侧定位到50% */
+    transform: translateX(-50%); /* 向左平移自身宽度的一半 */
+    margin: 0 auto;        /* 水平居中备用方案 */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.media12-box {
+    width: 30px;          /* 容器宽度 */
+    height: 154px;         /* 容器高度 */
+    border-radius: 20px;   /* 圆角半径（20px表示圆角大小） */
+    overflow: hidden;      /* 隐藏超出圆角范围的内容 */
+    box-shadow: 0 4px 8px rgba(0,0,0,0); /* 可选：添加阴影效果 */
+
+    /* 新增/修改的样式 */
+    background-color: rgb(37, 33, 33); /* 纯白背景 */
+    border: 1px solid #959595;  /* 可选：添加浅灰色边框 */
+    box-shadow: none;        /* 移除阴影（或保留为透明） */
+
+    position: absolute;      /* 使用绝对定位进行覆盖排列 */
+    left: calc(var(--index) * 30px); /* 设置左边距为20px */
+
+    margin-right: 15px;     /* 设置右侧间距为15px */
+    top: 0;
+
+    /* --box-index: 0; 定义CSS变量作为标记参数 */
+        transition: all 0.3s; /* 添加过渡动画使效果平滑 */
+}
+
+.media13-box {
+    width: 100px;          /* 容器宽度 */
+    height: 154px;         /* 容器高度 */
+    border-radius: 20px;   /* 圆角半径（20px表示圆角大小） */
+    overflow: hidden;      /* 隐藏超出圆角范围的内容 */
+    box-shadow: 0 4px 8px rgba(0,0,0,0); /* 可选：添加阴影效果 */
+
+    /* 新增/修改的样式 */
+    background-color: white; /* 纯白背景 */
+    border: 1px solid #959595;  /* 可选：添加浅灰色边框 */
+    box-shadow: none;        /* 移除阴影（或保留为透明） */
+
+    position: absolute;      /* 使用绝对定位进行覆盖排列 */
+    left: calc(var(--index) * 30px); /* 设置左边距为20px */
+
+    margin-right: 15px;     /* 设置右侧间距为15px */
+    top: 0;
+
+    /* --box-index: 0; 定义CSS变量作为标记参数 */
+        transition: all 0.3s; /* 添加过渡动画使效果平滑 */
+}
+
+.text-element1 {
+    position: fixed;
+    bottom: 20px; /* 与 .media1-box 相同的底部距离 */
+    left: calc(50% + 670px/2 + 20px); /* 居中位置 + 框宽度的一半 + 间距 */
+    transform: translateX(-40%); /* 微调位置 */
+    color: #000; /* 文本颜色 */
+    white-space: nowrap; /* 防止文本换行 */
+    font-size: 30px; /* 设置文字大小为16像素 */
+}
+
+
+
+
+.text-element2 {
+    position: fixed;
+    bottom: 53%; /* 与 .media1-box 相同的底部距离 */
+    left: 120px; /* 居中位置 + 框宽度的一半 + 间距 */
+    transform: translateX(-50%); /* 微调位置 */
+    color: #000; /* 文本颜色 */
+    white-space: nowrap; /* 防止文本换行 */
+    font-size: 30px; /* 设置文字大小为16像素 */
+}
+
+.text-element3 {
+    position: fixed;
+    bottom: 53%; /* 与 .media1-box 相同的底部距离 */
+    right: 89px;             /* 左侧定位到50% */
+    transform: translateX(-50%); /* 微调位置 */
+    color: #000; /* 文本颜色 */
+    white-space: nowrap; /* 防止文本换行 */
+    font-size: 30px; /* 设置文字大小为16像素 */
+}
+
+
+
+.media-image {
+    width: auto;           /* 取消强制宽度 */
+    height: auto;          /* 取消强制高度 */
+    max-width: 100%;        /* 限制最大宽度（按需调整百分比） */
+    max-height: 100%;       /* 限制最大高度 */
+    object-fit: contain;   /* 替换cover，保持比例且不裁剪 */
+    display: block;
+
+    /* 新增定位属性 */
+    position: absolute;    /* 启用绝对定位 */
+    top: 50%;              /* 垂直居中起点 */
+    left: 50%;             /* 水平居中起点 */
+    transform: translate(-50%, -50%); /* 精确居中 */
+}
+
+
+
+
+
+
+
+
+/* 正面牌布局 */
+.media-imagep {
+    width: auto;           /* 取消强制宽度 */
+    height: auto;          /* 取消强制高度 */
+    max-width: 21%;        /* 限制最大宽度（按需调整百分比） */
+    max-height: 21%;       /* 限制最大高度 */
+    object-fit: contain;   /* 替换cover，保持比例且不裁剪 */
+    display: block;
+
+    /* 新增定位属性 */
+    position: absolute;    /* 启用绝对定位 */
+    top: 32%;              /* 垂直居中起点 */
+    left: 16%;             /* 水平居中起点 */
+    transform: translate(-50%, -50%); /* 精确居中 */
+}
+
+/* 文字说明区域样式 */
+.caption {
+    position: absolute;   /* 绝对定位（相对于.media-box） */
+    bottom: 100;            /* 定位到底部 */
+    left: 0;              /* 左对齐 */
+    right: 0;             /* 右对齐（相当于宽度100%） */
+    background: rgba(0,0,0,0); /* 半透明黑色背景（透明度0.6） */
+    color: rgb(0, 0, 0);         /* 文字颜色 */
+    padding: 10px;        /* 内边距 */
+    box-sizing: border-box; /* 确保padding不增加元素总宽度 */
+}
+
+/* 标题文字样式 */
+.caption h3 {
+    margin: 0 0 5px 0;    /* 去除默认边距，下边距5px */
+    font-size: 18px;      /* 标题字号 */
+}
+/* 反转图片样式：控制图片在容器中的表现 */
+.media-imagefp {
+    width: auto;           /* 取消强制宽度 */
+    height: auto;          /* 取消强制高度 */
+    max-width: 21%;        /* 限制最大宽度（按需调整百分比） */
+    max-height: 21%;       /* 限制最大高度 */
+    object-fit: contain;   /* 替换cover，保持比例且不裁剪 */
+    display: block;
+
+    /* 反转新增定位属性 */
+    position: absolute;    /* 启用绝对定位 */
+    top: 61%;              /* 垂直居中起点 */
+    left: 74%;             /* 水平居中起点 */
+    transform: translate(-50%, -50%); /* 精确居中 */
+}
+
+/* 反转文字说明区域样式 */
+.captionf {
+    position: absolute;   /* 绝对定位（相对于.media-box） */
+    bottom: 0;            /* 定位到底部 */
+    left: 1;              /* 左对齐 */
+    right: 0;             /* 右对齐（相当于宽度100%） */
+    background: rgba(0,0,0,0); /* 半透明黑色背景（透明度0.6） */
+    color: rgb(0, 0, 0);         /* 文字颜色 */
+    padding: 10px;        /* 内边距 */
+    box-sizing: border-box; /* 确保padding不增加元素总宽度 */
+}
+
+/* 反转标题文字样式 */
+.captionf h3 {
+    margin: 0 0 5px 0;    /* 去除默认边距，下边距5px */
+    font-size: 18px;      /* 标题字号 */
+}
+/* 图片颠倒效果 */
+.upside-down {
+    transform: scaleY(-1); /* 垂直翻转 */
+}
+.left-right-flip {
+    transform: scaleX(-1); /* 水平翻转 */
+}
+.both-flip {
+    transform: scale(-1); /* 同时翻转 */
+}
+
+.caption {
+    position: absolute;
+    color: black;
+    padding: 10px;
+    box-sizing: border-box;
+    transition: all 0.3s; /* 添加过渡效果 */
+}
+
+/* 文字颠倒效果 */
+.text-upside-down {
+    transform: rotate(180deg);
+}
+.text-left-right {
+    transform: scaleX(-1);
+}
+.text-both-flip {
+    transform: rotate(180deg) scaleX(-1);
+}
