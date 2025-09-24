@@ -1,22 +1,35 @@
 const huas = ['img/方块.jpg', 'img/梅花.jpg', 'img/红桃.jpg', 'img/黑桃.jpg']
-const dians = ['3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', '1', '2', 'JOKER', 'JOKER*']
-const dax = {0: '3', 1: '4', 2: '5', 3: '6', 4: '7', 5: '8', 6: '9', 7: '10', 8: 'J', 9: 'Q', 10: 'K', 11: '1', 12: '2', 13: 'JOKER', 14: 'JOKER*'}
+const dians = ['3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A', '2', 'JOKER', 'JOKER*']
+const dax = {0: '3', 1: '4', 2: '5', 3: '6', 4: '7', 5: '8', 6: '9', 7: '10', 8: 'J', 9: 'Q', 10: 'K', 11: 'A', 12: '2', 13: 'JOKER', 14: 'JOKER*'}
 const hsdx = {0: 'img/方块.jpg', 1: 'img/梅花.jpg', 2: 'img/红桃.jpg', 3: 'img/黑桃.jpg'}
 const mapa = 20;  // 最大牌量(设置手牌放置边界)
 
 function paim(wz, lis){  // 设置牌面顺序
     if (kind == 0){
-        lis.sort((a, b) => {
-            // 先比较第一个元素
+        if (wz != 'media3-cp-box'){
+            lis.sort((a, b) => {
+                // 先比较第一个元素
+                if (a[0] !== b[0]) {
+                    return b[0] - a[0]; // 第一个元素不同时，直接按第一个元素排序
+                } else {
+                    return b[1] - a[1]; // 第一个元素相同时，按第二个元素排序
+                }
+            });
+        }else{
+            lis.sort((a, b) => {
+            // 第一步：优先比较子数组的第1个元素（a[0] 和 b[0]）
             if (a[0] !== b[0]) {
-                return b[0] - a[0]; // 第一个元素不同时，直接按第一个元素排序
+                return a[0] - b[0]; // 第1项不同时，按第1项升序（前项减后项）
             } else {
-                return b[1] - a[1]; // 第一个元素相同时，按第二个元素排序
+                // 第二步：第1项相同时，比较子数组的第2个元素（a[1] 和 b[1]）
+                return a[1] - b[1]; // 按第2项升序（前项减后项）
             }
-        });
+            });
+        }
+
         Xianscdp(1, wz, lis);
-        Xianscdp(2, wz, lis);
-        Xianscdp(3, wz, lis);
+        // Xianscdp(2, wz, lis);
+        // Xianscdp(3, wz, lis);
     }
 }
 
@@ -24,16 +37,52 @@ function Xianscdp(id, wz, lis){  // 显示层叠牌    位置，牌堆
     if (id == 1){
         if (wz == 'media1-box') {
             var zt = 'media11-box';
-            const caracterp1 = document.createElement('div');
-            caracterp1.className = 'text-element1';
-            caracterp1.textContent = lis.length; // 添加文本内容
-            document.querySelector('body').appendChild(caracterp1); // 关键：选择media1-box作为父容器
-
         }else{
-            var zt = "media-cp-box";
+            var zt = "media-cp" + id + "-box";
+        }
+
+        const caracterp1 = document.createElement('div');
+        caracterp1.className = 'text-element1';
+        caracterp1.textContent = WanJ(1).length; // 添加文本内容
+        document.querySelector('body').appendChild(caracterp1); // 关键：选择media1-box作为父容器
+
+        const caracterp2 = document.createElement('div');
+        caracterp2.className = 'text-element2';
+        caracterp2.textContent = WanJ(2).length; // 添加文本内容
+        document.querySelector('body').appendChild(caracterp2); // 关键：选择media1-box作为父容器
+
+        const caracterp3 = document.createElement('div');
+        caracterp3.className = 'text-element3';
+        caracterp3.textContent = WanJ(3).length; // 添加文本内容
+        document.querySelector('body').appendChild(caracterp3); // 关键：选择media1-box作为父容器
+
+        if(WanJ(1).length == 0){
+            ZiT(1, '胜利');
+            ZiT(id, 'None');
+            ZiT(id, 'None');
+            over = 1;
+            console.log(WanJ(1))
+        }else if(WanJ(2).length == 0){
+            ZiT(1, '失败');
+            ZiT(id, 'None');
+            ZiT(id, 'None');
+            over = 1;
+            console.log(WanJ(2))
+        }else if(WanJ(3).length == 0){
+            ZiT(1, '失败');
+            ZiT(id, 'None');
+            ZiT(id, 'None');
+            over = 1;
+            console.log(WanJ(3))
+        }
+
+        if (wz == 'media2-cp-box'){
+            zt = "media-cp2-box";
+        }else if (wz == 'media3-cp-box'){
+            zt = "media-cp3-box";
         }
         lis_zt = manm(0, lis);  // 手牌状态（是否选中
-        // console.log(lis_zt)
+        // console.log(id)
         const cj = mapa - lis.length;  // 计算出剩余空间
         // console.log(lis);
         let media1 = document.createElement('div');
@@ -86,8 +135,15 @@ function Xianscdp(id, wz, lis){  // 显示层叠牌    位置，牌堆
                     wbf.style.fontSize = '18px';
                 }
                 box.appendChild(wbf);
+                
+                if (wz != 'media2-cp-box' && wz != 'media3-cp-box') {
+                        box.style.setProperty('--index', i + cj * 0.5); // 设置索引变量
+                        box.style.zIndex = i;
+                }else{
+                    box.style.setProperty('--index', i); // 设置索引变量
+                    if (wz == 'media3-cp-box') box.style.zIndex = -i;
+                }
 
-                box.style.setProperty('--index', i + cj * 0.5); // 设置索引变量
                 document.querySelector('.' + wz).appendChild(box); // 关键：选择media1-box作为父容器
                 box.style.setProperty('--id', i); // 设置索引变量
             }else{
@@ -127,24 +183,32 @@ function Xianscdp(id, wz, lis){  // 显示层叠牌    位置，牌堆
                 }
                 box.appendChild(wbf);
 
-                box.style.setProperty('--index', i + cj * 0.5); // 设置索引变量
+                if (wz != 'media2-cp-box' && wz != 'media3-cp-box') {
+                        box.style.setProperty('--index', i + cj * 0.5); // 设置索引变量
+                        box.style.zIndex = i;
+                }else{
+                    box.style.setProperty('--index', i); // 设置索引变量
+                    if (wz == 'media3-cp-box') box.style.zIndex = -i;
+                }
+
                 box.style.setProperty('--id', i); // 设置索引变量
                 document.querySelector('.' + wz).appendChild(box); // 关键：选择media1-box作为父容器
             }
         }
-    }else if(id == 2){
-        const caracterp1 = document.createElement('div');
-        caracterp1.className = 'text-element2';
-        caracterp1.textContent = lis2.length; // 添加文本内容
-        document.querySelector('body').appendChild(caracterp1); // 关键：选择media1-box作为父容器
-        if (lis2.length == 0) sc_Class("media2-box");
-    }else if(id == 3){
-        const caracterp1 = document.createElement('div');
-        caracterp1.className = 'text-element3';
-        caracterp1.textContent = lis3.length; // 添加文本内容
-        document.querySelector('body').appendChild(caracterp1); // 关键：选择media1-box作为父容器
-        if (lis3.length == 0) sc_Class("media3-box");
     }
+    // else if(id == 2){
+    //     const caracterp1 = document.createElement('div');
+    //     caracterp1.className = 'text-element2';
+    //     caracterp1.textContent = lis2.length; // 添加文本内容
+    //     document.querySelector('body').appendChild(caracterp1); // 关键：选择media1-box作为父容器
+    //     if (lis2.length == 0) sc_Class("media2-box");
+    // }else if(id == 3){
+    //     const caracterp1 = document.createElement('div');
+    //     caracterp1.className = 'text-element3';
+    //     caracterp1.textContent = lis3.length; // 添加文本内容
+    //     document.querySelector('body').appendChild(caracterp1); // 关键：选择media1-box作为父容器
+    //     if (lis3.length == 0) sc_Class("media3-box");
+    // }
 
 
     if (wz == 'media1-box'){
@@ -157,6 +221,12 @@ function ChuPQY(){  // 出牌区域
     const media_cp = document.createElement('div');
     media_cp.className = 'media1-cp-box';
     document.body.appendChild(media_cp);
+    const media_cp2 = document.createElement('div');
+    media_cp.className = 'media2-cp-box';
+    document.body.appendChild(media_cp2);
+    const media_cp3 = document.createElement('div');
+    media_cp.className = 'media3-cp-box';
+    document.body.appendChild(media_cp3);
 }
 
 
@@ -338,17 +408,19 @@ function AnJ(wb, wz, wj = 1){ // 按键   文本内容，位置
             lis_spzt, num = PaiX(0)
             anv = PanDPX(lis_spzt, num);
             console.log(anv);
+            console.log(cp_lx);
             // console.log(lis_spzt);
             // console.log(cp_jl[cp_jl.length - 1]);
             // console.log(cp_jl[cp_jl.length - 2]);
             if (anv[0] != -1){
+                ZiT(1, 'None');
                 if (PaiQ()){
-                    ChuP(1)
+                    ChuP(1);
                 }else{
                     // console.log(cp_lx);
                     // console.log(anv);
-                    if (anv[0] != -1 && cp_lx[0] == anv[0] && cp_lx[1] == anv[1] && anv[2] > cp_lx[2]){
-                        ChuP(1)
+                    if ((anv[0] != -1 && cp_lx[0] == anv[0] && cp_lx[1] == anv[1] && anv[2] > cp_lx[2]) || (anv[0] == 5) || (cp_lx[0] == 4 && anv[0] == 4 && anv[2] > cp_lx[2])){
+                        ChuP(1);
                     }else{
                         if (anv[0] !=  cp_lx[0]) console.log('类型错误');
                         if (cp_lx[1] != anv[1]) console.log('长度错误');
@@ -357,30 +429,78 @@ function AnJ(wb, wz, wj = 1){ // 按键   文本内容，位置
                         // console.log(anv);
                     }
                 }
+                PanDCP_ChuP(proxy.HuiH % 3 + 1);  // 人机自动出牌
+                PanDCP_ChuP(proxy.HuiH % 3 + 1);
             }else{
                 console.log('错误出牌');
             }
         }else if (wb == '不要'){
-            append(cp_jl, 0);
-            proxy.HuiH++;
+            YaoBQ(1)
+            PanDCP_ChuP(proxy.HuiH % 3 + 1);  // 人机自动出牌
+            PanDCP_ChuP(proxy.HuiH % 3 + 1);
         }else if (wb == '抢地主'){
             console.log(WanJ(wj));
+            ZiT(1, '抢地主');
             for (let i = 0; i < 3; i++){
                 append(WanJ(wj), DeZP[i]);
             }
             sc_Class('media1-box');
-            sc_Class("text-element1")
+            sc_Class("text-element1");
             paim('media1-box', lis);
-            proxy.dz = wj - 1
-        }else if (wb == '下一个'){
-            proxy.HuiH++;
-            // append(cp_jl, 0);
-        }else if (wb == '自动出牌'){
-            if (PanDCP_ChuP(1) == 0){
-                console.log('要不起');
-                append(cp_jl, 0);
-                proxy.HuiH++;
+            proxy.dz = wj - 1;
+            proxy.HuiH = proxy.dz;
+        }else if(wb == '不抢'){
+            let d2 = 0;
+            let d3 = 0;
+            let dz = -1;
+            for (let i = 0; i < 17; i++){
+                d2 += WanJ(2)[i][0];
+                d3 += WanJ(3)[i][0];
             }
+            if (d2 >= d3) dz = 2;
+            else dz = 3;
+            proxy.HuiH = dz - 1;
+            console.log(WanJ(dz));
+            ZiT(dz, '抢地主');
+            for (let i = 0; i < 3; i++){
+                append(WanJ(dz), DeZP[i]);
+            }
+            // sc_Class("text-element" + dz);
+            // paim('media1-box', WanJ[dz]);
+
+
+            const caracterp1 = document.createElement('div');
+            caracterp1.className = 'text-element1';
+            caracterp1.textContent = WanJ(1).length; // 添加文本内容
+            document.querySelector('body').appendChild(caracterp1); // 关键：选择media1-box作为父容器
+
+            const caracterp2 = document.createElement('div');
+            caracterp2.className = 'text-element2';
+            caracterp2.textContent = WanJ(2).length; // 添加文本内容
+            document.querySelector('body').appendChild(caracterp2); // 关键：选择media1-box作为父容器
+
+            const caracterp3 = document.createElement('div');
+            caracterp3.className = 'text-element3';
+            caracterp3.textContent = WanJ(3).length; // 添加文本内容
+            document.querySelector('body').appendChild(caracterp3); // 关键：选择media1-box作为父容器
+
+
+            proxy.dz = dz - 1;
+            proxy.HuiH = proxy.dz;
+            if (dz == 2){
+                PanDCP_ChuP(proxy.HuiH % 3 + 1);
+                PanDCP_ChuP(proxy.HuiH % 3 + 1);
+            }else{
+                PanDCP_ChuP(proxy.HuiH % 3 + 1);
+            }
+        }else if (wb == '下一个'){
+            PanDCP_ChuP(proxy.HuiH % 3 + 1);
+        }else if (wb == '自动出牌'){
+            PanDCP_ChuP(1);
+            PanDCP_ChuP(proxy.HuiH % 3 + 1);  // 人机自动出牌
+            PanDCP_ChuP(proxy.HuiH % 3 + 1);
+        }else if (wb == '再来一局'){
+            location.reload(); 
         }
     });
 }
@@ -408,8 +528,9 @@ function ChuP(id){  // 出牌
     proxy.HuiH++;
 }
 
+
 function ChuP_zd(id, lis_zz){  // 出牌
-    console.log(lis_zz);
+    console.log(cp_lx);
     cp_lx = anv;
     append(cp_jl, 1);
     let lis_cp = [];  // 出的牌
@@ -420,12 +541,37 @@ function ChuP_zd(id, lis_zz){  // 出牌
         sc_Class('media1-box');
         paim('media1-box', WanJ(id));
     }
-
     sc_Class("media" + id + "-cp-box");
     sc_Class("text-element" + id);
     paim("media" + id + "-cp-box", lis_cp);
     proxy.HuiH++;
 }
+
+
+function YaoBQ(id){  // 出牌
+    console.log(id + ' ' + '要不起');
+    append(cp_jl, 0);
+    proxy.HuiH++;
+
+    sc_Class("media" + id + "-cp-box");
+    paim("media" + id + "-cp-box", []);
+    ZiT(id, '要不起')
+}
+
+
+function ZiT(id, text){  // 显示文字
+    const titleElement = document.querySelector('.text-label' + id);
+    if (titleElement){
+        titleElement.remove();
+    }
+    if (text != 'None'){
+        const titleElement = document.createElement('div');
+        titleElement.className = 'text-label' + id;
+        titleElement.textContent = text;
+        document.body.appendChild(titleElement);
+    }
+}
+
 
 
 function PaiQ(){  // 是否有牌权
@@ -688,6 +834,8 @@ function PanDPX(lis_aj, num){  // 判断出牌的牌型
 }
 
 function PanDCP_ChuP(id){
+    if (over == 1) return;
+    ZiT(id, 'None')
     // 单 顺子 对 连对 三 三带一 三带对 无翅飞机 有翅飞机单 有翅飞机对 四 四带单 四带对 王炸
     // 有翅飞机单 有翅飞机对 无翅飞机 连对 顺子 三带一 三带对 三 对 单 四 王炸    出牌顺序
     lis_aj = PaiX(id);
@@ -714,16 +862,12 @@ function PanDCP_ChuP(id){
                     }else{
                         qqg++;
                         append(lis_ls, lis_aj[i]);
-                        // if (qqg == cp_lx[1]){
-                        //     for (let i; i < lis_dd.length; i++){
-                        //         append(lis_ls, lis_dd[i]);
-                        //     }
-                        //     return [13, cp_lx[1], dx];
-                        // }
                     }
                 }else if (qqg < 2 || lis_dd.length < 2){
                     qqg = 0;
                     dx = -1;
+                    lis_ls = [];
+                    lis_zz = [];
                 }
                 else{
                     if (qqg <= lis_dd.length){
@@ -778,6 +922,8 @@ function PanDCP_ChuP(id){
                 }else if (qqg < 2 || lis_dd.length < 2){
                     qqg = 0;
                     dx = -1;
+                    lis_ls = [];
+                    lis_zz = [];
                 }
                 else{
                     if (qqg <= lis_dd.length){
@@ -826,6 +972,8 @@ function PanDCP_ChuP(id){
             }else if (qqg < 2 || lis_dd.length < 2){
                 qqg = 0;
                 dx = -1;
+                lis_ls = [];
+                lis_zz = [];
             }
             else{
                 var mi = qqg;
@@ -858,6 +1006,7 @@ function PanDCP_ChuP(id){
             }else if (qqg < 3){
                 qqg = 0;
                 dx = -1;
+                lis_ls = [];
             }
             else{
                 var mi = qqg;
@@ -890,6 +1039,7 @@ function PanDCP_ChuP(id){
             }else if (qqg < 5){
                 qqg = 0;
                 dx = -1;
+                lis_ls = [];
             }
             else{
                 var mi = qqg;
@@ -912,9 +1062,10 @@ function PanDCP_ChuP(id){
         for (let i = 0; i < 15; i++){
             if (lis_aj[i].length == 1){
                 append(lis_dd, lis_aj[i][0]);
+                break;
                 }
             }
-        if (lis_dd.length >= 2){
+        if (lis_dd.length >= 1){
             var qqg = 0;
             var dx = -1;
             var lis_zz = [];  // 最终出牌
@@ -942,8 +1093,8 @@ function PanDCP_ChuP(id){
         lis_zz = [];
         for (let i = 0; i < 15; i++){
             if (lis_aj[i].length == 2){
-                append(lis_dd, lis_aj[i][0]);
-                append(lis_dd, lis_aj[i][1]);
+                append(lis_dd, [lis_aj[i][0], lis_aj[i][1]]);
+                break;
                 }
             }
 
@@ -982,7 +1133,7 @@ function PanDCP_ChuP(id){
                 append(lis_zz, lis_ls[0][0]);
                 append(lis_zz, lis_ls[0][1]);
                 append(lis_zz, lis_ls[0][2]);
-                anv = [8, mi, dx];
+                anv = [3, mi, dx];
                 ChuP_zd(id, lis_zz);
                 return 1;
             }
@@ -995,7 +1146,7 @@ function PanDCP_ChuP(id){
             if (lis_aj[i].length == 2){
                 append(lis_zz, lis_aj[i][0]);
                 append(lis_zz, lis_aj[i][1]);
-                anv = [9, 1, i];
+                anv = [2, 1, i];
                 ChuP_zd(id, lis_zz);
                 return 1;
             }
@@ -1007,7 +1158,7 @@ function PanDCP_ChuP(id){
         for (let i = 0; i < 15; i++){
             if (lis_aj[i].length == 1){
                 append(lis_zz, lis_aj[i][0]);
-                anv = [10, 1, i];
+                anv = [1, 1, i];
                 ChuP_zd(id, lis_zz);
                 return 1;
             }
@@ -1023,7 +1174,7 @@ function PanDCP_ChuP(id){
                 append(lis_zz, lis_aj[i][1]);
                 append(lis_zz, lis_aj[i][2]);
                 append(lis_zz, lis_aj[i][3]);
-                anv = [11, 1, i];
+                anv = [4, 1, i];
                 ChuP_zd(id, lis_zz);
                 return 1;
             }
@@ -1034,11 +1185,11 @@ function PanDCP_ChuP(id){
         if (lis_aj[13].length == 1 && lis_aj[14].length == 1){
             append(lis_zz, lis_aj[13][0]);
             append(lis_zz, lis_aj[14][0]);
-            anv = [12, 1, i];
+            anv = [5, 1, i];
             ChuP_zd(id, lis_zz);
             return 1;
         }
-        return 0;
+        YaoBQ(id)
     }else{
         // 1.有翅飞机单
         if (cp_lx[0] == 13){
@@ -1140,7 +1291,7 @@ function PanDCP_ChuP(id){
         }
 
         // 3.无翅飞机
-        if (cp_lx[0] == 13){
+        if (cp_lx[0] == 12){
             var qqdd = 0;
 
             var qqg = 0;
@@ -1197,9 +1348,10 @@ function PanDCP_ChuP(id){
                         qqg++;
                         append(lis_ls, lis_aj[i]);
                     }
-                }else if (qqg < cp_lx[1] || lis_dd.length < cp_lx[1]){
+                }else if (qqg < cp_lx[1] || lis_ls.length < cp_lx[1]){
                     qqg = 0;
                     dx = -1;
+                    lis_ls = [];
                 }
                 else{
                     var mi = cp_lx[1]
@@ -1231,9 +1383,10 @@ function PanDCP_ChuP(id){
                         qqg++;
                         append(lis_ls, lis_aj[i]);
                     }
-                }else if (qqg < cp_lx[1] || lis_dd.length < cp_lx[1]){
+                }else if (qqg < cp_lx[1] || lis_ls.length < cp_lx[1]){
                     qqg = 0;
                     dx = -1;
+                    lis_ls = [];
                 }
                 else{
                     var mi = cp_lx[1]
@@ -1258,9 +1411,11 @@ function PanDCP_ChuP(id){
             for (let i = 0; i < 15; i++){
                 if (lis_aj[i].length == 1){
                     append(lis_dd, lis_aj[i][0]);
+                    break;
                     }
                 }
-            if (lis_dd.length >= 2){
+                
+            if (lis_dd.length >= 1){
                 var qqg = 0;
                 var dx = -1;
                 var lis_zz = [];  // 最终出牌
@@ -1269,12 +1424,11 @@ function PanDCP_ChuP(id){
                         lis_ls = [lis_aj[i]];  // 临时记录
                         dx = i;
                         qqg++;
-                        var mi = 1;
                         append(lis_zz, lis_dd[0]);
                         append(lis_zz, lis_ls[0][0]);
                         append(lis_zz, lis_ls[0][1]);
                         append(lis_zz, lis_ls[0][2]);
-                        anv = [6, mi, dx];
+                        anv = [6, 1, dx];
                         ChuP_zd(id, lis_zz);
                         return 1;
                     }
@@ -1290,34 +1444,35 @@ function PanDCP_ChuP(id){
             lis_zz = [];
             for (let i = 0; i < 15; i++){
                 if (lis_aj[i].length == 2){
-                    append(lis_dd, lis_aj[i][0]);
-                    append(lis_dd, lis_aj[i][1]);
+                    append(lis_dd, [lis_aj[i][0], lis_aj[i][1]]);
+                    break;
                     }
                 }
 
             var qqg = 0;
             var dx = -1;
             lis_ls = [];
-            for (let i = cp_lx[2] + 1;i < 15; i++){
-                if (lis_aj[i].length == 3){
-                    lis_ls = [lis_aj[i]];  // 临时记录
-                    dx = i;
-                    qqg++;
-                    var mi = 1;
-                    append(lis_zz, lis_dd[0][0]);
-                    append(lis_zz, lis_dd[0][1]);
-                    append(lis_zz, lis_ls[0][0]);
-                    append(lis_zz, lis_ls[0][1]);
-                    append(lis_zz, lis_ls[0][2]);
-                    anv = [7, mi, dx];
-                    ChuP_zd(id, lis_zz);
-                    return 1;
+            if (lis_dd.length >= 2){
+                for (let i = cp_lx[2] + 1;i < 15; i++){
+                    if (lis_aj[i].length == 3){
+                        lis_ls = [lis_aj[i]];  // 临时记录
+                        dx = i;
+                        qqg++;
+                        append(lis_zz, lis_dd[0][0]);
+                        append(lis_zz, lis_dd[0][1]);
+                        append(lis_zz, lis_ls[0][0]);
+                        append(lis_zz, lis_ls[0][1]);
+                        append(lis_zz, lis_ls[0][2]);
+                        anv = [7, 1, dx];
+                        ChuP_zd(id, lis_zz);
+                        return 1;
+                    }
                 }
             }
         }
 
         // 8.三个
-        if (cp_lx[0] == 8){
+        if (cp_lx[0] == 3){
             var lis_dd = [];
             var qqg = 0;
             var dx = -1;
@@ -1328,11 +1483,10 @@ function PanDCP_ChuP(id){
                     lis_ls = [lis_aj[i]];  // 临时记录
                     dx = i;
                     qqg++;
-                    var mi = 1;
                     append(lis_zz, lis_ls[0][0]);
                     append(lis_zz, lis_ls[0][1]);
                     append(lis_zz, lis_ls[0][2]);
-                    anv = [8, mi, dx];
+                    anv = [3, 1, dx];
                     ChuP_zd(id, lis_zz);
                     return 1;
                 }
@@ -1341,13 +1495,13 @@ function PanDCP_ChuP(id){
 
 
         // 9.对
-        if (cp_lx[0] == 9){
+        if (cp_lx[0] == 2){
             lis_zz = []
             for (let i = cp_lx[2] + 1; i < 15; i++){
                 if (lis_aj[i].length == 2){
                     append(lis_zz, lis_aj[i][0]);
                     append(lis_zz, lis_aj[i][1]);
-                    anv = [9, 1, i];
+                    anv = [2, 1, i];
                     ChuP_zd(id, lis_zz);
                     return 1;
                 }
@@ -1356,12 +1510,12 @@ function PanDCP_ChuP(id){
 
 
         // 10.单
-        if (cp_lx[0] == 10){
+        if (cp_lx[0] == 1){
             lis_zz = []
             for (let i = cp_lx[2] + 1; i < 15; i++){
                 if (lis_aj[i].length == 1){
                     append(lis_zz, lis_aj[i][0]);
-                    anv = [10, 1, i];
+                    anv = [1, 1, i];
                     ChuP_zd(id, lis_zz);
                     return 1;
                 }
@@ -1372,15 +1526,29 @@ function PanDCP_ChuP(id){
 
         // 11.四
         lis_zz = []
-        for (let i = cp_lx[2] + 1; i < 15; i++){
-            if (lis_aj[i].length == 4){
-                append(lis_zz, lis_aj[i][0]);
-                append(lis_zz, lis_aj[i][1]);
-                append(lis_zz, lis_aj[i][2]);
-                append(lis_zz, lis_aj[i][3]);
-                anv = [11, 1, i];
-                ChuP_zd(id, lis_zz);
-                return 1;
+        if (cp_lx[0] == 4 && cp_lx[0] != 5){
+            for (let i = cp_lx[2] + 1; i < 15; i++){
+                if (lis_aj[i].length == 4){
+                    append(lis_zz, lis_aj[i][0]);
+                    append(lis_zz, lis_aj[i][1]);
+                    append(lis_zz, lis_aj[i][2]);
+                    append(lis_zz, lis_aj[i][3]);
+                    anv = [4, 1, i];
+                    ChuP_zd(id, lis_zz);
+                    return 1;
+                }
+            }
+        }else if (cp_lx[0] == 4 && cp_lx[0] != 5){
+            for (let i = 0; i < 15; i++){
+                if (lis_aj[i].length == 4){
+                    append(lis_zz, lis_aj[i][0]);
+                    append(lis_zz, lis_aj[i][1]);
+                    append(lis_zz, lis_aj[i][2]);
+                    append(lis_zz, lis_aj[i][3]);
+                    anv = [4, 1, i];
+                    ChuP_zd(id, lis_zz);
+                    return 1;
+                }
             }
         }
         
@@ -1390,12 +1558,11 @@ function PanDCP_ChuP(id){
         if (lis_aj[13].length == 1 && lis_aj[14].length == 1){
             append(lis_zz, lis_aj[13][0]);
             append(lis_zz, lis_aj[14][0]);
-            anv = [12, 1, i];
+            anv = [5, 1, 13];
             ChuP_zd(id, lis_zz);
             return 1;
         }
-        return 0;
-        
+        YaoBQ(id)
     }
 }
 
@@ -1424,7 +1591,7 @@ function sc_Class(className) {  // 按class删除
     });
 }
 
-function FaP(){
+function FaP(){   // 发牌
     lis_PD = []  // 牌堆
     for (let i = 0; i < 13; i++){
         for (let j = 0; j < 4; j++){
@@ -1471,15 +1638,24 @@ function ZunBJD(){  // 准备阶段
     dizp(a);
 
     // 抢地主
-    AnJ_PaiB(['抢地主']);
+    AnJ_PaiB(['抢地主', '不抢']);
 }
 
 function ChuPJD(){  // 出牌阶段
     if (kind == 0)
-        if ((3 - (proxy.HuiH % 3)) % 3 == proxy.dz){
-            AnJ_PaiB(['出牌', '自动出牌']);
+        if (over == 0){
+            if ((3 - (proxy.HuiH % 3)) % 3 == 0){
+                if (PaiQ()){
+                    AnJ_PaiB(['出牌', '自动出牌']);
+                }else{
+                    AnJ_PaiB(['出牌', '自动出牌', '不要']);
+                }
+            }else{
+                console.log(66666 + '   ' + proxy.HuiH)
+                AnJ_PaiB(['下一个']);
+            }
         }else{
-            AnJ_PaiB(['下一个']);
+            AnJ_PaiB(['再来一局']);
         }
 }
 
@@ -1487,8 +1663,7 @@ function ChuPJD(){  // 出牌阶段
 function WanJ(num){  // 玩家
     if (num == 1){
         return lis;
-    }
-    else if (num == 2) return lis2;
+    }else if (num == 2) return lis2;
     else if (num == 3) return lis3;
 }
 
@@ -1510,7 +1685,7 @@ var proxy = new Proxy(user, {  // 监听变量
     // console.log(`设置 ${prop} = ${value}`);
     target[prop] = value;
     if (prop == 'dz' || prop == 'HuiH'){
-        ChuPJD()
+        ChuPJD();
     }
     return true; // 表示设置成功
   }
@@ -1529,9 +1704,8 @@ css_cp2 = '.media2-cp-box .media11-box';
 css_cp3 = '.media3-cp-box .media11-box';
 cp1 = 'media1-cp-box';
 cp2 = 'media2-cp-box';
-cp3 = 'media-cp-box';
+cp3 = 'media3-cp-box';
 var lis = [];
-for (let i = 0; i < 17; i ++) lis.push([i % 15, i % 4]);
 var lis_zt = manm(0, lis);  // 手牌状态（是否选中
 const cardClickHandlers = new Map();
 var cp_jl = [0, 0]  // 最后面两个人没出牌则当前人有牌权 0 不出 1 出
@@ -1540,6 +1714,7 @@ var lis_ls = []  // 自动选牌
 var lis_zz = []  // 自动选好的牌
 var lis_spzt = []  // 手牌状态（每种大小的牌有几张）
 var anv = []  // 出牌类型大小长度
+var over = 0;  // 游戏是否结束
 var kind = 0  // 0 打人机， 1 联网
 
 
@@ -1552,6 +1727,5 @@ var DeZP = a;  // 地主牌
 var lis = b;
 var lis2 = c;
 var lis3 = d;
-
 
 LiuC()  // 流程

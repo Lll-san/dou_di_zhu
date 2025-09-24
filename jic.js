@@ -19,7 +19,7 @@ function lis_mm(x, y){  // 用y个x填满列表
    return lis
 }
 
-function lis_lmm(y){  // 用y个x填满列表
+function lis_lmm(y){  // 用y个[]填满列表
    let lis = []
    for (let i = 0; i < y; i++){
       lis.push([]);
